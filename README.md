@@ -32,7 +32,6 @@ The following table shows the accuracy and timecost of the models on the validat
 | Transformer      | 0.68     | 0.55     |
 | Swin Transformer | 0.69     | 0.65     |
 | EfficientNetB0   | 0.70     | 0.75     |
-| EfficientNetB1   | 0.71     | 0.85     |
 
 ## Usage
 

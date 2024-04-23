@@ -16,12 +16,13 @@ from torch.utils.tensorboard import SummaryWriter
 from models.resnet.resnet_50 import ResNet50
 from models.resnet.resnet_101 import ResNet101
 from models.resnet.resnet_152 import ResNet152
+from models.efficientnet.model import EfficientNet
 warnings.filterwarnings("ignore")
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument("--method", type=str, default='resnet50', help='model name (resnet50, resnet101 or resnet152)')
+    parser.add_argument("--method", type=str, default='resnet50', help='model name (resnet50, resnet101, resnet152 or efficientnet)')
     parser.add_argument("--data_path", type=str, default='./data/fer/icml_face_data.csv', help='fer2013 data path')
     parser.add_argument("--batch_size", type=int, default=64, help='batch size')
     parser.add_argument("--num_epochs", type=int, default=100, help='number of epochs')
@@ -55,6 +56,8 @@ if __name__ == '__main__':
         model = ResNet101
     elif method == 'resnet152':
         model = ResNet152
+    elif method == 'efficientnet':
+        model = EfficientNet.from_pretrained('efficientnet-b0', num_classes=7)
     else:
         raise ValueError('Invalid model name!')
     
