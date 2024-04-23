@@ -21,9 +21,9 @@ warnings.filterwarnings("ignore")
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("--method", type=str, default='resnet50', help='model name (resnet50, resnet101 or resnet152)')
-    parser.add_argument("--test_path", type=str, default='./dataset/train.csv', help='test data path')
+    parser.add_argument("--test_path", type=str, default='./data/fer/val.csv', help='test data path')
     parser.add_argument("--batch_size", type=int, default=64, help='batch size')
-    parser.add_argument("--weight_path", type=str, default=None, help='pretrained model path')
+    parser.add_argument("--weight_path", type=str, default='/home/xubo/Codes/course/Facial-expression-recgonition/checkpoints/resnet50/2024_4_22/resnet50_90.pth', help='pretrained model path')
     args = parser.parse_args()
 
     method = args.method
@@ -53,13 +53,15 @@ if __name__ == '__main__':
    
 
     acc_avg = 0
+    cnt = 0
     for x_val, y_val in val_loader:
-        x_val, y_val = x_val.cuda(), y_val.cuda()
+        # x_val, y_val = x_val.cuda(), y_val.cuda()
         with torch.no_grad():
             y_pred = model(x_val)
             # loss = torch.nn.CrossEntropyLoss()(y_pred, y_val)
             y_pred = torch.argmax(y_pred, dim=1)
             acc = torch.mean((y_pred == y_val).float())
             acc_avg += acc
-    acc_avg /= len(val_loader)
+            cnt += 1
+    acc_avg /= cnt
     print('Accuracy of %s on the validation set: %.4f' % (method, acc_avg))

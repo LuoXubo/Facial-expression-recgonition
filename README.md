@@ -26,9 +26,9 @@ The following table shows the accuracy and timecost of the models on the validat
 
 | Model            | Accuracy | Timecost |
 | ---------------- | -------- | -------- |
-| ResNet50         | 0.65     | 0.25     |
-| ResNet101        | 0.66     | 0.35     |
-| ResNet152        | 0.67     | 0.45     |
+| ResNet50         | 0.9753   | 0.25     |
+| ResNet101        | 0.9811   | 0.35     |
+| ResNet152        | 0.9713   | 0.45     |
 | Transformer      | 0.68     | 0.55     |
 | Swin Transformer | 0.69     | 0.65     |
 | EfficientNetB0   | 0.70     | 0.75     |
