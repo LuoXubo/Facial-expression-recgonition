@@ -11,6 +11,46 @@ from torch.utils.data import Dataset, DataLoader
 from torchvision import transforms
 from PIL import Image
 
+class FER2013_train(Dataset):
+    def __init__(self, data_path, transform=None):
+        self.data = pd.read_csv(data_path)
+        self.data = self.data[self.data['Usage'] == 'Training']
+        self.transform = transform
+
+    def __len__(self):
+        return len(self.data)
+
+    def __getitem__(self, idx):
+        img = self.data['pixels'][idx]
+        img = np.array(img.split(' '))
+        img = img.reshape(48, 48)
+        img = Image.fromarray(img.astype('uint8'))
+        label = self.data['emotion'][idx]
+        if self.transform:
+            img = self.transform(img)
+
+        return img, label
+        
+class FER2013_val(Dataset):
+    def __init__(self, data_path, transform=None):
+        self.data = pd.read_csv(data_path)
+        self.data = self.data[self.data['Usage'] == 'PublicTest']
+        self.transform = transform
+
+    def __len__(self):
+        return len(self.data)
+
+    def __getitem__(self, idx):
+        img = self.data['pixels'][idx]
+        img = np.array(img.split(' '))
+        img = img.reshape(48, 48)
+        img = Image.fromarray(img.astype('uint8'))
+        label = self.data['emotion'][idx]
+        if self.transform:
+            img = self.transform(img)
+
+        return img, label
+    
 class FER2013(Dataset):
     def __init__(self, data_path, transform=None):
         self.data = pd.read_csv(data_path)
@@ -27,6 +67,7 @@ class FER2013(Dataset):
         label = self.data['emotion'][idx]
         if self.transform:
             img = self.transform(img)
+
         return img, label
     
 def get_dataloader(data_path, batch_size):
@@ -34,11 +75,15 @@ def get_dataloader(data_path, batch_size):
         transforms.ToTensor(),
         transforms.Normalize(mean=[0.5], std=[0.5])
     ])
+    # train_dataset = FER2013_train(data_path, transform)
+    # val_dataset = FER2013_val(data_path, transform)
+    # train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
+    # val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
+
+    # return train_loader, val_loader
     dataset = FER2013(data_path, transform)
     dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
     return dataloader
-
-
 
 
 if __name__ == '__main__':
