@@ -104,4 +104,8 @@ if __name__ == '__main__':
             model.train()
             # writer.add_scalar('Accuracy/test', acc_sum / len(test_loader), epoch)
 
+    model.eval()
+    model = model.cpu()
+    torch.save(model.state_dict(), save_path + '/%s_%s.pth' % (method, num_epochs))
+
     print('Training finished!')
