@@ -21,7 +21,7 @@ warnings.filterwarnings("ignore")
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("--method", type=str, default='resnet50', help='model name (resnet50, resnet101 or resnet152)')
-    parser.add_argument("--test_path", type=str, default='./dataset/test.csv', help='test data path')
+    parser.add_argument("--test_path", type=str, default='./dataset/train.csv', help='test data path')
     parser.add_argument("--batch_size", type=int, default=64, help='batch size')
     parser.add_argument("--weight_path", type=str, default=None, help='pretrained model path')
     args = parser.parse_args()
