@@ -18,20 +18,31 @@ The following models are evaluated on the validation dataset:
 - Transformer
 - Swin Transformer
 - EfficientNetB0
-- EfficientNetB1
+- EfficientNetB4
+- EfficientNetB7
 
 ## Results
 
 The following table shows the accuracy and timecost of the models on the validation dataset:
 
-| Model            | Accuracy | Timecost |
+Dataset: FER2013
+| Model | Accuracy | Timecost |
 | ---------------- | -------- | -------- |
-| ResNet50         | 0.9753   | 0.25     |
-| ResNet101        | 0.9811   | 0.35     |
-| ResNet152        | 0.9713   | 0.45     |
-| Transformer      | 0.68     | 0.55     |
-| Swin Transformer | 0.69     | 0.65     |
-| EfficientNetB0   | 0.70     | 0.75     |
+| ResNet50 | 0.9753 | 0.25 |
+| ResNet101 | 0.9811 | 0.35 |
+| ResNet152 | 0.9713 | 0.45 |
+| Transformer | 0.68 | 0.55 |
+| Swin Transformer | 0.69 | 0.65 |
+
+Dataset: RAF-DB
+| Model | Accuracy | Timecost |
+| ---------------- | -------- | -------- |
+| ResNet50 | 0.8067 | 0.1138 |
+| ResNet101 | 0.7465 | 0.2479 |
+| ResNet152 | 0.7803 | 0.3358 |
+| EfficientNetB0 | 0.8136 | 0.75 |
+| EfficientNetB4 | 0.7939 | 0.75 |
+| EfficientNetB7 | 0.8029 | 0.75 |
 
 ## Usage
 

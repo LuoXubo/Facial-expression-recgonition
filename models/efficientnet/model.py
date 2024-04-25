@@ -176,8 +176,8 @@ class EfficientNet(nn.Module):
         Conv2d = get_same_padding_conv2d(image_size=image_size)
 
         # Stem
-        # in_channels = 3  # rgb
-        in_channels = 1  # gray
+        in_channels = 3  # rgb
+        # in_channels = 1  # gray
         out_channels = round_filters(32, self._global_params)  # number of output channels
         self._conv_stem = Conv2d(in_channels, out_channels, kernel_size=3, stride=2, bias=False)
         self._bn0 = nn.BatchNorm2d(num_features=out_channels, momentum=bn_mom, eps=bn_eps)

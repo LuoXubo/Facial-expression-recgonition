@@ -12,7 +12,6 @@ from torchvision import models
 num_classes = 7
 
 ResNet152 = models.resnet152(pretrained=True)
-ResNet152.conv1 = nn.Conv2d(1, 64, kernel_size=7, stride=2, padding=3, bias=False)
 ResNet152.fc = nn.Linear(ResNet152.fc.in_features, num_classes)
 
 
