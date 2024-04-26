@@ -43,6 +43,7 @@ Dataset: RAF-DB
 | EfficientNetB0 | 0.8136 | 0.75 |
 | EfficientNetB4 | 0.7939 | 0.75 |
 | EfficientNetB7 | 0.8029 | 0.75 |
+| Vision Transformer | 0.6578 | 0.1202 |
 
 ## Usage
 

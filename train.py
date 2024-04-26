@@ -69,16 +69,16 @@ if __name__ == '__main__':
         model = EfficientNet.from_pretrained('efficientnet-b7', num_classes=7)
     elif method == 'vit':
         model = ViT(
-            image_size = 48,
-            patch_size = 8,
-            num_classes = 7,
-            dim = 1024,
-            depth = 3,
-            heads = 16,
-            mlp_dim = 2048,
-            dropout = 0.1,
-            emb_dropout = 0.1
-        )
+        image_size = 100,
+        patch_size = 10,
+        num_classes = 7,
+        dim = 1024,
+        depth = 3,
+        heads = 16,
+        mlp_dim = 2048,
+        dropout = 0.1,
+        emb_dropout = 0.1
+    )
     else:
         raise ValueError('Invalid model name!')
     

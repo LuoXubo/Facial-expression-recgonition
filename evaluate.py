@@ -17,6 +17,7 @@ from models.resnet.resnet_50 import ResNet50
 from models.resnet.resnet_101 import ResNet101
 from models.resnet.resnet_152 import ResNet152
 from models.efficientnet.model import EfficientNet
+from models.vit.model import ViT
 warnings.filterwarnings("ignore")
 
 
@@ -52,6 +53,18 @@ if __name__ == '__main__':
         model = EfficientNet.from_pretrained('efficientnet-b4', num_classes=7)
     elif method == 'efficientnet7':
         model = EfficientNet.from_pretrained('efficientnet-b7', num_classes=7)
+    elif method == 'vit':
+        model = ViT(
+        image_size = 100,
+        patch_size = 10,
+        num_classes = 7,
+        dim = 1024,
+        depth = 3,
+        heads = 16,
+        mlp_dim = 2048,
+        dropout = 0.1,
+        emb_dropout = 0.1
+    )
     else:
         raise ValueError('Invalid model name!')
     

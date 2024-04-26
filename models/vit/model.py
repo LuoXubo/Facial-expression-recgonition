@@ -139,8 +139,8 @@ class ViT(nn.Module):
 if __name__ == '__main__':
 
     model = ViT(
-        image_size = 48,
-        patch_size = 8,
+        image_size = 100,
+        patch_size = 10,
         num_classes = 7,
         dim = 1024,
         depth = 3,
@@ -151,6 +151,6 @@ if __name__ == '__main__':
     )
 
 
-    input = torch.randn(1, 3, 48, 48)
+    input = torch.randn(1, 3, 100, 100)
     output = model(input)
     print(output.shape)
