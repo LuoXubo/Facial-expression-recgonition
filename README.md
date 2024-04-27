@@ -65,6 +65,10 @@ To recognize the facial expressions of a single person or several persons, run t
 python demo.py --image_path path/to/image
 ```
 
+To quickly test the model, you can run the demo.ipynb notebook.
+
+![Some samples predicted by ResNet50.](./samples.jpg)
+
 ## Requirements
 
 - Python 3.8

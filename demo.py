@@ -19,6 +19,8 @@ from utils.DataLoader import get_dataloader
 from models.resnet.resnet_50 import ResNet50
 from models.resnet.resnet_101 import ResNet101
 from models.resnet.resnet_152 import ResNet152
+from models.efficientnet.model import EfficientNet
+from models.vit.model import ViT
 warnings.filterwarnings("ignore")
 
 # configs
@@ -49,6 +51,24 @@ if __name__ == '__main__':
         model = ResNet101
     elif method == 'resnet152':
         model = ResNet152
+    elif method == 'efficientnet0':
+        model = EfficientNet.from_pretrained('efficientnet-b0', num_classes=7)
+    elif method == 'efficientnet4':
+        model = EfficientNet.from_pretrained('efficientnet-b4', num_classes=7)
+    elif method == 'efficientnet7':
+        model = EfficientNet.from_pretrained('efficientnet-b7', num_classes=7)
+    elif method == 'vit':
+        model = ViT(
+        image_size = 100,
+        patch_size = 10,
+        num_classes = 7,
+        dim = 1024,
+        depth = 3,
+        heads = 16,
+        mlp_dim = 2048,
+        dropout = 0.1,
+        emb_dropout = 0.1
+    )
     else:
         raise ValueError('Invalid model name!')
     
@@ -59,21 +79,16 @@ if __name__ == '__main__':
     # face detection
     face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
     img = cv2.imread(image_path)
-    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    faces = face_cascade.detectMultiScale(gray, 1.3, 5)
+    faces = face_cascade.detectMultiScale(img, 1.3, 5)
 
     # emotion recognition
     for (x, y, w, h) in faces:
         cv2.rectangle(img, (x, y), (x+w, y+h), (255, 0, 0), 2)
-        roi_gray = gray[y:y+h, x:x+w]
-        roi_color = img[y:y+h, x:x+w]
-
-        single_face = Image.fromarray(roi_gray)
-        single_face = single_face.resize((48, 48))
-        single_face = single_face.convert('L')
+        roi_color = img[y:y+h, x:x+w, :]
+        single_face = Image.fromarray(roi_color)
+        single_face = single_face.resize((100, 100))
         single_face = np.array(single_face)
-        single_face = single_face.reshape(1, 1, 48, 48)
-        # transforms.Normalize(mean=[0.5], std=[0.5])
+        single_face = single_face.reshape(1, 3, 100, 100)
         single_face = single_face / 255.0
         single_face = torch.tensor(single_face, dtype=torch.float32)
         emotion = model(single_face)
