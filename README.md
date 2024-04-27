@@ -67,7 +67,7 @@ python demo.py --image_path path/to/image
 
 To quickly test the model, you can run the demo.ipynb notebook.
 
-![Some samples predicted by ResNet50.](./samples.jpg)
+![Some samples predicted by ResNet50.](./samples.png)
 
 ## Requirements
 
