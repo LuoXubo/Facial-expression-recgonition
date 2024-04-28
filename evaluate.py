@@ -7,7 +7,7 @@
 import matplotlib.pyplot as plt
 import torch
 import warnings
-import tqdm
+from tqdm import tqdm
 import time
 import os
 import argparse
@@ -19,6 +19,8 @@ from models.resnet.resnet_152 import ResNet152
 from models.efficientnet.model import EfficientNet
 from models.vit.model import ViT
 warnings.filterwarnings("ignore")
+
+emotions = ['Angry', 'Disgust', 'Fear', 'Happy', 'Sad', 'Surprise', 'Neutral']
 
 
 if __name__ == '__main__':
@@ -76,16 +78,32 @@ if __name__ == '__main__':
     acc_avg = 0
     cnt = 0
     timecost = 0
-    for x_val, y_val in val_loader:
+    num_emotions = [0]*7
+    num_correct = [0]*7
+    with tqdm(total=len(val_loader)) as pbar:
+        for x_val, y_val in val_loader:
+            with torch.no_grad():
+                tik = time.time()
+                y_pred = model(x_val)
+                tok = time.time()
+                timecost += (tok - tik)/len(x_val)
+                y_pred = torch.argmax(y_pred, dim=1)
+                acc = torch.mean((y_pred == y_val).float())
+                acc_avg += acc
+                for idx in range(len(y_val)):
+                    num_emotions[y_val[idx]] += 1
+                    if y_pred[idx] == y_val[idx]:
+                        num_correct[y_val[idx]] += 1
+                cnt += 1
+            pbar.update(1)
 
-        with torch.no_grad():
-            tik = time.time()
-            y_pred = model(x_val)
-            tok = time.time()
-            timecost += (tok - tik)/len(x_val)
-            y_pred = torch.argmax(y_pred, dim=1)
-            acc = torch.mean((y_pred == y_val).float())
-            acc_avg += acc
-            cnt += 1
     acc_avg /= cnt
+    with open('./results.txt', 'a') as f:
+        f.write('Accuracy of %s on the validation set: %.4f, average timecost: %.4f \n' % (method, acc_avg, timecost/cnt))
     print('Accuracy of %s on the validation set: %.4f, average timecost: %.4f ' % (method, acc_avg, timecost/cnt))
+    print('------------------------------------')
+    for i in range(7):
+        print('Emotion: %s, Total: %d, Correct: %d, Accuracy: %.4f' % (emotions[i], num_emotions[i], num_correct[i], num_correct[i]/max(num_emotions[i],1)))
+        f.write('Emotion: %s, Total: %d, Correct: %d, Accuracy: %.4f \n' % (emotions[i], num_emotions[i], num_correct[i], num_correct[i]/max(num_emotions[i],1)))
+    
+    f.close()
