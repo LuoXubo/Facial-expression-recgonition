@@ -100,10 +100,10 @@ if __name__ == '__main__':
     acc_avg /= cnt
     with open('./results.txt', 'a') as f:
         f.write('Accuracy of %s on the validation set: %.4f, average timecost: %.4f \n' % (method, acc_avg, timecost/cnt))
-    print('Accuracy of %s on the validation set: %.4f, average timecost: %.4f ' % (method, acc_avg, timecost/cnt))
-    print('------------------------------------')
-    for i in range(7):
-        print('Emotion: %s, Total: %d, Correct: %d, Accuracy: %.4f' % (emotions[i], num_emotions[i], num_correct[i], num_correct[i]/max(num_emotions[i],1)))
-        f.write('Emotion: %s, Total: %d, Correct: %d, Accuracy: %.4f \n' % (emotions[i], num_emotions[i], num_correct[i], num_correct[i]/max(num_emotions[i],1)))
-    
+        print('Accuracy of %s on the validation set: %.4f, average timecost: %.4f ' % (method, acc_avg, timecost/cnt))
+        print('------------------------------------')
+        for i in range(7):
+            print('Emotion: %s, Total: %d, Correct: %d, Accuracy: %.4f' % (emotions[i], num_emotions[i], num_correct[i], num_correct[i]/max(num_emotions[i],1)))
+            f.write('Emotion: %s, Total: %d, Correct: %d, Accuracy: %.4f \n' % (emotions[i], num_emotions[i], num_correct[i], num_correct[i]/max(num_emotions[i],1)))
+        
     f.close()

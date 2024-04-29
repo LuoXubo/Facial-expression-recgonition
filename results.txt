@@ -1,0 +1,56 @@
+Accuracy of resnet50 on the validation set: 0.8066, average timecost: 0.1068 
+Emotion: Angry, Total: 329, Correct: 258, Accuracy: 0.7842 
+Emotion: Disgust, Total: 74, Correct: 34, Accuracy: 0.4595 
+Emotion: Fear, Total: 160, Correct: 73, Accuracy: 0.4562 
+Emotion: Happy, Total: 1185, Correct: 1092, Accuracy: 0.9215 
+Emotion: Sad, Total: 478, Correct: 353, Accuracy: 0.7385 
+Emotion: Surprise, Total: 162, Correct: 117, Accuracy: 0.7222 
+Emotion: Neutral, Total: 680, Correct: 548, Accuracy: 0.8059 
+Accuracy of resnet101 on the validation set: 0.7463, average timecost: 0.2320 
+Emotion: Angry, Total: 329, Correct: 262, Accuracy: 0.7964 
+Emotion: Disgust, Total: 74, Correct: 36, Accuracy: 0.4865 
+Emotion: Fear, Total: 160, Correct: 67, Accuracy: 0.4188 
+Emotion: Happy, Total: 1185, Correct: 1055, Accuracy: 0.8903 
+Emotion: Sad, Total: 478, Correct: 414, Accuracy: 0.8661 
+Emotion: Surprise, Total: 162, Correct: 93, Accuracy: 0.5741 
+Emotion: Neutral, Total: 680, Correct: 363, Accuracy: 0.5338 
+Accuracy of resnet152 on the validation set: 0.7803, average timecost: 0.3126 
+Emotion: Angry, Total: 329, Correct: 266, Accuracy: 0.8085 
+Emotion: Disgust, Total: 74, Correct: 43, Accuracy: 0.5811 
+Emotion: Fear, Total: 160, Correct: 49, Accuracy: 0.3063 
+Emotion: Happy, Total: 1185, Correct: 1091, Accuracy: 0.9207 
+Emotion: Sad, Total: 478, Correct: 283, Accuracy: 0.5921 
+Emotion: Surprise, Total: 162, Correct: 95, Accuracy: 0.5864 
+Emotion: Neutral, Total: 680, Correct: 567, Accuracy: 0.8338 
+Accuracy of efficientnet4 on the validation set: 0.7940, average timecost: 0.0880 
+Emotion: Angry, Total: 329, Correct: 236, Accuracy: 0.7173 
+Emotion: Disgust, Total: 74, Correct: 31, Accuracy: 0.4189 
+Emotion: Fear, Total: 160, Correct: 75, Accuracy: 0.4688 
+Emotion: Happy, Total: 1185, Correct: 1093, Accuracy: 0.9224 
+Emotion: Sad, Total: 478, Correct: 407, Accuracy: 0.8515 
+Emotion: Surprise, Total: 162, Correct: 97, Accuracy: 0.5988 
+Emotion: Neutral, Total: 680, Correct: 497, Accuracy: 0.7309 
+Accuracy of efficientnet7 on the validation set: 0.8027, average timecost: 0.3116 
+Emotion: Angry, Total: 329, Correct: 241, Accuracy: 0.7325 
+Emotion: Disgust, Total: 74, Correct: 34, Accuracy: 0.4595 
+Emotion: Fear, Total: 160, Correct: 47, Accuracy: 0.2938 
+Emotion: Happy, Total: 1185, Correct: 1078, Accuracy: 0.9097 
+Emotion: Sad, Total: 478, Correct: 334, Accuracy: 0.6987 
+Emotion: Surprise, Total: 162, Correct: 122, Accuracy: 0.7531 
+Emotion: Neutral, Total: 680, Correct: 607, Accuracy: 0.8926 
+Accuracy of vit on the validation set: 0.6607, average timecost: 0.0807 
+Emotion: Angry, Total: 329, Correct: 197, Accuracy: 0.5988 
+Emotion: Disgust, Total: 74, Correct: 32, Accuracy: 0.4324 
+Emotion: Fear, Total: 160, Correct: 31, Accuracy: 0.1938 
+Emotion: Happy, Total: 1185, Correct: 995, Accuracy: 0.8397 
+Emotion: Sad, Total: 478, Correct: 220, Accuracy: 0.4603 
+Emotion: Surprise, Total: 162, Correct: 68, Accuracy: 0.4198 
+Emotion: Neutral, Total: 680, Correct: 484, Accuracy: 0.7118 
+Accuracy of efficientnet0 on the validation set: 0.8136, average timecost: 0.0267 
+Emotion: Angry, Total: 329, Correct: 255, Accuracy: 0.7751 
+Emotion: Disgust, Total: 74, Correct: 34, Accuracy: 0.4595 
+Emotion: Fear, Total: 160, Correct: 83, Accuracy: 0.5188 
+Emotion: Happy, Total: 1185, Correct: 1080, Accuracy: 0.9114 
+Emotion: Sad, Total: 478, Correct: 396, Accuracy: 0.8285 
+Emotion: Surprise, Total: 162, Correct: 101, Accuracy: 0.6235 
+Emotion: Neutral, Total: 680, Correct: 547, Accuracy: 0.8044 

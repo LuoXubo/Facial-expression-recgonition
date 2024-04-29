@@ -41,9 +41,22 @@ Dataset: RAF-DB
 | ResNet101 | 0.7465 | 0.2479 |
 | ResNet152 | 0.7803 | 0.3358 |
 | EfficientNetB0 | 0.8136 | 0.75 |
-| EfficientNetB4 | 0.7939 | 0.75 |
-| EfficientNetB7 | 0.8029 | 0.75 |
+| EfficientNetB4 | 0.7939 | 0.0880 |
+| EfficientNetB7 | 0.8029 | 0.3116 |
 | Vision Transformer | 0.6578 | 0.1202 |
+
+Accuracies of each method on different emotions:
+| Model | Angry | Disgust | Fear | Happy | Sad | Surprise | Neutral |
+| ---------------- | ------ | ------- | ---- | ----- | --- | ------- | ------- |
+| ResNet50 | 0.7842 | 0.4595 | 0.4562 | 0.9215 | 0.7385 | 0.7222 | 0.8059 |
+| ResNet101 | 0.7964 | 0.4865 | 0.4188 | 0.8903 | 0.8661 | 0.5741 | 0.5338 |
+| ResNet152 | 0.8085 | 0.5811 | 0.3063 | 0.9207 | 0.5921 | 0.5864 | 0.8338 |
+| EfficientNetB0 | 0.7751 | 0.4595 | 0.5188 | 0.9114 | 0.8285 | 0.6235 | 0.8044 |
+| EfficientNetB4 | 0.7325 | 0.4595 | 0.2938 | 0.9097 | 0.6987 | 0.7531 | 0.8926 |
+| EfficientNetB7 | 0.5988 | 0.4324 | 0.1938 | 0.8397 | 0.4603 | 0.4198 | 0.7118 |
+| Vision Transformer | 0.5988 | 0.4324 | 0.1938 | 0.8397 | 0.4603 | 0.4198 | 0.7118 |
+
+![Accuracies of each method on different emotions.](./figs/acc_emotions.png)
 
 ## Usage
 
@@ -67,7 +80,7 @@ python demo.py --image_path path/to/image
 
 To quickly test the model, you can run the demo.ipynb notebook.
 
-![Some samples predicted by ResNet50.](./samples.png)
+![Some samples predicted by ResNet50.](./figs/samples.png)
 
 ## Requirements
 
