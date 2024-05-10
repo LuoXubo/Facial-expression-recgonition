@@ -13,6 +13,7 @@ import os
 import argparse
 # from utils.DataLoader import get_dataloader
 from utils.RAFDB import get_dataloader
+from models.resnet.resnet_18 import ResNet18
 from models.resnet.resnet_50 import ResNet50
 from models.resnet.resnet_101 import ResNet101
 from models.resnet.resnet_152 import ResNet152
@@ -43,7 +44,9 @@ if __name__ == '__main__':
     print('Data loaded successfully!')
 
     print('------------------------------------')
-    if method == 'resnet50':
+    if method == 'resnet18':
+        model = ResNet18
+    elif method == 'resnet50':
         model = ResNet50
     elif method == 'resnet101':
         model = ResNet101

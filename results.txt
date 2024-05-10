@@ -54,3 +54,11 @@ Emotion: Happy, Total: 1185, Correct: 1080, Accuracy: 0.9114
 Emotion: Sad, Total: 478, Correct: 396, Accuracy: 0.8285 
 Emotion: Surprise, Total: 162, Correct: 101, Accuracy: 0.6235 
 Emotion: Neutral, Total: 680, Correct: 547, Accuracy: 0.8044 
+Accuracy of resnet18 on the validation set: 0.7820, average timecost: 0.0571 
+Emotion: Angry, Total: 329, Correct: 258, Accuracy: 0.7842 
+Emotion: Disgust, Total: 74, Correct: 33, Accuracy: 0.4459 
+Emotion: Fear, Total: 160, Correct: 78, Accuracy: 0.4875 
+Emotion: Happy, Total: 1185, Correct: 1069, Accuracy: 0.9021 
+Emotion: Sad, Total: 478, Correct: 273, Accuracy: 0.5711 
+Emotion: Surprise, Total: 162, Correct: 123, Accuracy: 0.7593 
+Emotion: Neutral, Total: 680, Correct: 565, Accuracy: 0.8309 
