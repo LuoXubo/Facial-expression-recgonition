@@ -41,7 +41,7 @@ Dataset: RAF-DB
 | ResNet50 | 0.8067 | 0.1138 |
 | ResNet101 | 0.7465 | 0.2479 |
 | ResNet152 | 0.7803 | 0.3358 |
-| EfficientNetB0 | 0.8136 | 0.75 |
+| EfficientNetB0 | 0.8136 | 0.0267 |
 | EfficientNetB4 | 0.7939 | 0.0880 |
 | EfficientNetB7 | 0.8029 | 0.3116 |
 | Vision Transformer | 0.6578 | 0.1202 |
